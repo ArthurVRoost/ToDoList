@@ -9,3 +9,16 @@ let button1 = document.getElementsByClassName("bouton2")[1];
 let button2 = document.getElementsByClassName("bouton2")[2];
 let text = document.getElementById("displayText");
 let edit = false;
+
+function ajouter(e) {
+    e.preventDefault()
+    let liste = document.createElement("p")
+    text.appendChild(liste)
+    let tache1= document.createElement("p")
+    tache1.textContent = String(input.value)
+    liste.appendChild(tache1)
+    tache1.style.margin = "0 !important"
+    tache1.style.padding = "0 !important"
+ }
+ btnAdd.addEventListener("click", ajouter)
+ 
