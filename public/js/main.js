@@ -7,3 +7,5 @@ let bouton2 = document.getElementsByClassName("bouton")[2];
 let button = document.getElementsByClassName("bouton2")[0];
 let button1 = document.getElementsByClassName("bouton2")[1];
 let button2 = document.getElementsByClassName("bouton2")[2];
+let text = document.getElementById("displayText");
+let edit = false;
