@@ -1,3 +1,4 @@
+// VARIABLES GENERALES
 let input = document.getElementsByClassName("input")[0];
 let btnAdd = document.getElementsByClassName("btn")[0];
 let bouton = document.getElementsByClassName("bouton")[0];
@@ -5,11 +6,14 @@ let bouton1 = document.getElementsByClassName("bouton")[1];
 let bouton2 = document.getElementsByClassName("bouton")[2];
 
 let text = document.getElementById("displayText");
-
+// FUNCTION AJOUT
+// SOURCE PREVENDEFAULT
+// https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
 function ajouter(e){
     e.preventDefault()
     if (input.value === "") 
       return;
+   // CREATION DE LA DIV + 3 BOUTONS POUR FINI SUPP ET EDIT
     let taskContainer = document.createElement("div");
     taskContainer.className = "task-container pasfini"
     taskContainer.style.display = "flex"
@@ -47,7 +51,7 @@ function ajouter(e){
     btnSupp.style.padding = "5px 10px"
     btnSupp.style.borderRadius = "5px"
     btnSupp.style.cursor = "pointer"
-
+   // AJOUT DES 3 BOUTONS POUR FINI SUPP ET EDIT + TEXTE
     taskContainer.appendChild(tache1);
     taskContainer.appendChild(btnEdit);
     taskContainer.appendChild(btnFini);
@@ -60,7 +64,7 @@ function ajouter(e){
       taskContainer.classList.add("fini");
       applyCurrentFilter()
     })
-
+// AJOUT EVENTLISTENER SUR LES 3 BOUTONS
     btnEdit.addEventListener("click", ()=>{
       let editInput = document.createElement("input")
       editInput.type = "text"
@@ -98,19 +102,10 @@ function ajouter(e){
       taskContainer.remove()
     })
    }
-btnAdd.addEventListener("click", ajouter);
-
-bouton.addEventListener("click", ()=>{
-   applyFilter("all")
-})
-bouton1.addEventListener("click", ()=>{
-   applyFilter("fini")
-})
-bouton2.addEventListener("click", ()=>{
-   applyFilter("pasfini")
-})
-
-function applyCurrentFilter() {
+// SOURCE APPLYFILTER
+// https://www.geeksforgeeks.org/javascript-apply-function/
+// DEFINI QUEL FILTRE AVEC ACTIVE OU PAS
+function applyFilterActuel() {
    if (bouton1.classList.contains("active")) {
       applyFilter("fini")
    }
@@ -121,7 +116,7 @@ function applyCurrentFilter() {
       applyFilter("all")
    }
 }
-
+// D'ABORD REMOVE LES FILTRES POUR AJOUTER LES BONS ENSUITE
 function applyFilter(filter) {
    let tasks = document.querySelectorAll(".task-container")
    bouton.classList.remove("active")
@@ -136,7 +131,7 @@ function applyFilter(filter) {
    else{
       bouton.classList.add("active")
    }
-
+// BOUCLE FOREACH QUI VA PARCOURIR TOUTES LES TACHES ET AFFICHER LES BONNES EN FONCTIONS DU FILTRE
    tasks.forEach(task =>{
       if (filter === "all") {
          task.style.display = "flex"
@@ -152,5 +147,17 @@ function applyFilter(filter) {
       }
    })
 }
+// PERMET DE SELECTIONNER LE BON FILTRE
+btnAdd.addEventListener("click", ajouter);
+
+bouton.addEventListener("click", ()=>{
+   applyFilter("all")
+})
+bouton1.addEventListener("click", ()=>{
+   applyFilter("fini")
+})
+bouton2.addEventListener("click", ()=>{
+   applyFilter("pasfini")
+})
 
 applyFilter("all")
