@@ -96,4 +96,18 @@ function ajouter(e){
          btnSupp.style.display = "inline-block"
       })
     })
+    btnSupp.addEventListener("click", ()=>{
+      taskContainer.remove()
+    })
    }
+   btnAdd.addEventListener("click", ajouter);
+
+   bouton.addEventListener("click", ()=>{
+      applyFilter("all")
+   })
+   bouton1.addEventListener("click", ()=>{
+      applyFilter("fini")
+   })
+   bouton2.addEventListener("click", ()=>{
+      applyFilter("pasfini")
+   })
