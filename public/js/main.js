@@ -5,8 +5,6 @@ let bouton1 = document.getElementsByClassName("bouton")[1];
 let bouton2 = document.getElementsByClassName("bouton")[2];
 
 let text = document.getElementById("displayText");
-let edit = false;
-let taskEdit = null; 
 
 function ajouter(e){
     e.preventDefault()
@@ -100,14 +98,28 @@ function ajouter(e){
       taskContainer.remove()
     })
    }
-   btnAdd.addEventListener("click", ajouter);
+btnAdd.addEventListener("click", ajouter);
 
-   bouton.addEventListener("click", ()=>{
-      applyFilter("all")
-   })
-   bouton1.addEventListener("click", ()=>{
+bouton.addEventListener("click", ()=>{
+   applyFilter("all")
+})
+bouton1.addEventListener("click", ()=>{
+   applyFilter("fini")
+})
+bouton2.addEventListener("click", ()=>{
+   applyFilter("pasfini")
+})
+
+function applyCurrentFilter() {
+   if (bouton1.classList.contains("active")) {
       applyFilter("fini")
-   })
-   bouton2.addEventListener("click", ()=>{
+   }
+   else if (bouton2.classList.contains("active")){
       applyFilter("pasfini")
-   })
+   }
+   else {
+      applyFilter("all")
+   }
+}
+
+
