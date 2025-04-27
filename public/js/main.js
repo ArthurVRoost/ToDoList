@@ -32,6 +32,8 @@ function ajouter(e){
     btnFini.textContent = "Done"
     btnFini.className = "task-btn btn-fini"
     btnFini.style.marginRight = "5px"
+    btnFini.style.backgroundColor = "#519d79"
+    btnFini.style.color = "white"
     btnFini.style.padding = "5px 10px"
     btnFini.style.borderRadius = "5px"
     btnFini.style.cursor = "pointer"
@@ -39,6 +41,8 @@ function ajouter(e){
     let btnEdit = document.createElement("button");
     btnEdit.textContent = "Modifier"
     btnEdit.className = "task-btn btn-edit"
+    btnEdit.style.backgroundColor = "#519d79"
+    btnEdit.style.color = "white"
     btnEdit.style.marginRight = "5px"
     btnEdit.style.padding = "5px 10px"
     btnEdit.style.borderRadius = "5px"
@@ -47,6 +51,8 @@ function ajouter(e){
 
     let btnSupp = document.createElement("button");
     btnSupp.textContent = "Supprimer"
+    btnSupp.style.backgroundColor = "#519d79"
+    btnSupp.style.color = "white"
     btnSupp.className = "task-btn btn-supp"
     btnSupp.style.padding = "5px 10px"
     btnSupp.style.borderRadius = "5px"
