@@ -122,4 +122,35 @@ function applyCurrentFilter() {
    }
 }
 
+function applyFilter(filter) {
+   let tasks = document.querySelectorAll(".task-container")
+   bouton.classList.remove("active")
+   bouton1.classList.remove("active")
+   bouton2.classList.remove("active")
+   if (filter === "fini") {
+      bouton1.classList.add("active")
+   }
+   else if (filter === "pasfini"){
+      bouton2.classList.add("active")
+   }
+   else{
+      bouton.classList.add("active")
+   }
 
+   tasks.forEach(task =>{
+      if (filter === "all") {
+         task.style.display = "flex"
+      }
+      else if (filter === "fini" && task.classList.contains("fini")){
+         task.style.display = "flex"
+      }
+      else if (filter === "pasfini" && task.classList.contains("pasfini")){
+         task.style.display = "flex"
+      }
+      else{
+         task.style.display = "none"
+      }
+   })
+}
+
+applyFilter("all")
