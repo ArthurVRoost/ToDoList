@@ -6,6 +6,7 @@ let bouton2 = document.getElementsByClassName("bouton")[2];
 
 let text = document.getElementById("displayText");
 let edit = false;
+let taskEdit = null; 
 
 function ajouter(e){
     e.preventDefault()
@@ -56,4 +57,43 @@ function ajouter(e){
     text.appendChild(taskContainer);
     input.value = "";
 
+    btnFini.addEventListener("click", ()=>{
+      taskContainer.classList.remove("pasfini");
+      taskContainer.classList.add("fini");
+      applyCurrentFilter()
+    })
+
+    btnEdit.addEventListener("click", ()=>{
+      let editInput = document.createElement("input")
+      editInput.type = "text"
+      editInput.value = tache1.textContent
+      editInput.style.flex = "1"
+      editInput.style.marginRight = "5px"
+      editInput.style.padding = "5px"
+      editInput.style.borderRadius = "5px"
+
+      let btnConfirmer = document.createElement("button")
+      btnConfirmer.textContent = "Confirmer"
+      btnConfirmer.style.padding = "5px 10px"
+      btnConfirmer.style.borderRadius = "5px"
+      btnConfirmer.style.cursor = "pointer"
+      btnConfirmer.style.backgroundColor = "#327191"
+      btnConfirmer.style.color = "white"
+      btnFini.style.display = "none"
+      btnEdit.style.display = "none"
+      btnSupp.style.display = "none"
+      tache1.style.display = "none"
+      taskContainer.insertBefore(editInput, btnFini);
+      taskContainer.insertBefore(btnConfirmer, btnFini);
+
+      btnConfirmer.addEventListener("click", ()=>{
+         tache1.textContent = editInput.value
+         tache1.style.display = "block"
+         editInput.remove()
+         btnConfirmer.remove()
+         btnFini.style.display = "inline-block"
+         btnEdit.style.display = "inline-block"
+         btnSupp.style.display = "inline-block"
+      })
+    })
    }
