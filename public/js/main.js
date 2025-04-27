@@ -48,4 +48,12 @@ function ajouter(e){
     btnSupp.style.padding = "5px 10px"
     btnSupp.style.borderRadius = "5px"
     btnSupp.style.cursor = "pointer"
+
+    taskContainer.appendChild(tache1);
+    taskContainer.appendChild(btnEdit);
+    taskContainer.appendChild(btnFini);
+    taskContainer.appendChild(btnSupp);
+    text.appendChild(taskContainer);
+    input.value = "";
+
    }
