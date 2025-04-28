@@ -4,7 +4,6 @@ let btnAdd = document.getElementsByClassName("btn")[0];
 let bouton = document.getElementsByClassName("bouton")[0];
 let bouton1 = document.getElementsByClassName("bouton")[1]; 
 let bouton2 = document.getElementsByClassName("bouton")[2];
-
 let text = document.getElementById("displayText");
 // FUNCTION AJOUT
 // SOURCE PREVENDEFAULT
@@ -110,6 +109,8 @@ function ajouter(e){
    }
 // SOURCE APPLYFILTER
 // https://www.geeksforgeeks.org/javascript-apply-function/
+// SOURCE CONTAINS
+// https://www.w3schools.com/java/ref_string_contains.asp
 // DEFINI QUEL FILTRE AVEC ACTIVE OU PAS
 function applyFilterActuel() {
    if (bouton1.classList.contains("active")) {
